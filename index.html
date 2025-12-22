@@ -1,462 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Promised Landscaping: Transforming lawns into works of art in Houston, Texas. Contact us for premium lawn care services.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Favicons use your new logo (cache-busted) -->
-  <link rel="icon" href="assets/images/OfficialPLogo.png?v=3" type="image/png">
-  <link rel="apple-touch-icon" href="assets/images/OfficialPLogo.png?v=3">
+  <title>Smooth Stitches by Sara | Basic Alterations & Hemming</title>
+  <meta name="description" content="Smooth Stitches by Sara offers basic clothing alterations like pant hemming, zipper repair, and simple fixes. Email for a quick quote and drop-off details." />
+  <meta name="robots" content="index,follow" />
 
-  <title>Promised Landscaping | Your Promised Land</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- Optional: if you later add a logo/favicon -->
+  <!-- <link rel="icon" type="image/png" href="assets/favicon.png"> -->
 
   <style>
-    /* ---------- Base Reset ---------- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #f4f4f4;
-      background: linear-gradient(to bottom, #4e342e, #2c2c2c);
+    :root{
+      --pink:#d84c7f;
+      --pink-dark:#b83a68;
+      --bg:#fff7fb;
+      --text:#2b2b2b;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --border:rgba(0,0,0,.08);
     }
-
-    /* ---------- Header ---------- */
-    header.hero {
-      text-align: center;
-      padding: 50px 20px;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.5)),
-        url('assets/images/micrograss.jpg') center/cover no-repeat;
-      color: #fff;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
     }
-    header.hero h1 { font-size: 3.5rem; font-weight: 700; }
-    header.hero p { font-size: 1.5rem; font-style: italic; }
-
-    /* ---------- Nav ---------- */
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #333;
-      padding: 14px 0;          /* breathing room */
-      gap: 40px;                /* space between links */
+    header{
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      color:#fff;
+      padding: 56px 20px 40px;
+      text-align:center;
     }
-    nav a {
-      color: #fff; text-decoration: none;
-      font-size: 1.2rem; font-weight: 700;
+    header h1{margin:0 0 8px;font-size:2.2rem}
+    header p{margin:0;opacity:.95;font-size:1.05rem}
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+    .pillbar{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .pill{
+      background: rgba(255,255,255,.2);
+      border: 1px solid rgba(255,255,255,.25);
       padding: 8px 12px;
-      transition: color .2s ease;
-    }
-    nav a:hover { color: #81c784; text-decoration: underline; }
-
-    /* ---------- Sections & Layout ---------- */
-    section { padding: 100px 0; }  /* more vertical spacing */
-
-    .content {
-      display: flex;
-      flex-direction: column;      /* mobile-first stack */
-      align-items: center;
-      padding: 50px 20px;
-      gap: 30px;
-    }
-
-    .text-content { max-width: 760px; text-align: center; }
-    .text-content h2 { font-size: 3rem; color: #81c784; margin-bottom: 15px; }
-    .text-content p { font-size: 1.5rem; color: #fff; line-height: 1.8; }
-
-    /* ---------- Images ---------- */
-    .side-image {
-      width: 500px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,.3);
-    }
-
-    /* ---------- Buttons ---------- */
-    .btn, .btn-quote {
-      display: inline-block;
-      background: #81c784;
-      color: #000;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 10px 14px;
-      border-radius: 8px;
-      transition: transform .05s ease, background .2s ease;
-    }
-    .btn:hover, .btn-quote:hover { background: #66bb6a; transform: translateY(-1px); }
-
-    /* ---------- Video (embed) ---------- */
-    .video-wrap {
-      width: 100%;
-      max-width: 760px;
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,.35);
-      margin-top: 12px;
-    }
-    .video-wrap iframe { width: 100%; height: 100%; border: 0; }
-
-    /* ---------- Pricing (Card Layout) ---------- */
-    .price-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      margin-top: 10px;
-    }
-    .price-card {
-      background: #424242;
-      border: 1px solid #666;
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: 0 4px 8px rgba(0,0,0,.25);
-    }
-    .price-card.highlight { border-color: #81c784; box-shadow: 0 6px 12px rgba(0,0,0,.35); }
-    .price-card h3 { margin-bottom: 6px; color: #81c784; font-size: 1.35rem; }
-    .price-card .price { font-size: 1.35rem; font-weight: 800; margin: 10px 0; color: #fff; }
-
-    .included { list-style: none; margin: 0 0 12px 0; padding: 0; }
-    .included li { padding-left: 18px; position: relative; margin: 6px 0; color: #eee; }
-    .included li::before { content: "•"; position: absolute; left: 0; color: #81c784; }
-
-    .fine-print { color: #bbb; font-size: .95rem; margin-top: 10px; }
-
-    /* Lot chips */
-    .chip-group { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 4px; }
-    .chip {
-      border: 1px solid #666;
-      background: transparent;
-      color: #fff;
-      font: inherit;
-      padding: 6px 10px;
       border-radius: 999px;
-      cursor: pointer;
-      transition: background .2s ease, color .2s ease, transform .05s ease;
+      font-size:.95rem;
+      backdrop-filter: blur(6px);
     }
-    .chip:hover { transform: translateY(-1px); }
-    .chip.selected { background: #81c784; color: #000; border-color: #81c784; }
-
-    /* Mowing add-ons */
-    .addons {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 6px;
-      margin: 10px 0 8px;
+    section{margin-top:28px}
+    h2{
+      color: var(--pink-dark);
+      margin: 0 0 10px;
+      font-size:1.5rem;
     }
-    .addons label { display: flex; align-items: center; gap: 8px; font-size: 0.98rem; color: #eee; }
-    .addons input[type="checkbox"] { transform: scale(1.15); accent-color: #81c784; }
-    .est-note { color:#bbb; font-size:.9rem; margin-left:4px; }
-
-    /* ---------- Thumbtack widget theming ---------- */
-    .thumbtack-widget-wrap { width: 100%; max-width: 700px; margin-top: 16px; }
-    #tt-review-widget-one {
-      background: #424242;
-      border: 1px solid #666;
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card{
+      grid-column: span 12;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 14px;
-      color: #fff;
-      box-shadow: 0 4px 8px rgba(0,0,0,.25);
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.05);
     }
-    #tt-review-widget-one img { max-width: 100%; height: auto; }
-    #tt-review-widget-one .tt-right p { color: #eee; }
-    #tt-review-widget-one a { color: #81c784; font-weight: 700; text-decoration: none; }
-    #tt-review-widget-one a:hover { color: #66bb6a; text-decoration: underline; }
-
-    /* ---------- Contact ---------- */
-    .contact-section a { color: #81c784; text-decoration: none; font-weight: 700; }
-    .contact-section a:hover { color: #66bb6a; }
-    .contact-section p { color: #81c784; font-size: 1.6rem; line-height: 2.0; }
-
-    /* ---------- Footer ---------- */
-    footer { background-color: #1e1e1e; color: #ccc; text-align: center; padding: 15px 0; }
-    footer p { font-size: .9rem; }
-    footer p a { color: #81c784; text-decoration: none; }
-    footer p a:hover { color: #66bb6a; }
-
-    /* ---------- Desktop Tweaks ---------- */
-    @media (min-width: 768px) {
-      .content { flex-direction: row; justify-content: space-between; }
-      .text-content { text-align: left; }
-      .side-image { width: 600px; }
+    @media(min-width:820px){
+      .card.half{grid-column: span 6;}
     }
-    @media (min-width: 900px) {
-      .price-grid { grid-template-columns: 1fr 1fr; } /* 2 columns on desktop */
+    ul{margin:10px 0 0;padding-left:18px}
+    .muted{color:var(--muted)}
+    .cta{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:center;
+      text-align:center;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px dashed rgba(216,76,127,.35);
+      background: rgba(216,76,127,.06);
     }
+    .btn{
+      display:inline-block;
+      background: var(--pink);
+      color:#fff;
+      padding: 12px 16px;
+      border-radius: 10px;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .btn:hover{background:var(--pink-dark)}
+    .small{font-size:.95rem}
+    footer{
+      text-align:center;
+      padding: 18px 14px;
+      background: rgba(255,255,255,.65);
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--muted);
+    }
+    a{color:var(--pink-dark);font-weight:700;text-decoration:none}
+    a:hover{text-decoration:underline}
   </style>
+
+  <!-- Local SEO: Structured data (edit serviceArea later if you want) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Smooth Stitches by Sara",
+    "description": "Basic clothing alterations and hemming. Quick, simple fixes like pant hems, zipper repair, and mending.",
+    "email": "smoothstitchesbysara@gmail.com",
+    "url": "https://smoothstitchesbysara.com",
+    "priceRange": "$",
+    "serviceType": [
+      "Pant hemming",
+      "Basic alterations",
+      "Zipper repair",
+      "Mending and repairs",
+      "Waist adjustments",
+      "Sleeve shortening"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <!-- Header -->
-  <header class="hero">
-    <h1>Promised Landscaping</h1>
-    <p>"Tomorrow isn't promised, but the land sure is."</p>
+  <header>
+    <h1>Smooth Stitches by Sara</h1>
+    <p>Basic Alterations • Pant Hemming • Simple Fixes</p>
+
+    <div class="pillbar" aria-label="Popular services">
+      <div class="pill">Pant hems</div>
+      <div class="pill">Zippers</div>
+      <div class="pill">Mending</div>
+      <div class="pill">Waist tweaks</div>
+      <div class="pill">Sleeve shortening</div>
+    </div>
   </header>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- About -->
-  <section id="about" class="content about-section">
-    <img src="assets/images/pitchforkme.jpg" alt="Me with a pitchfork" class="side-image" loading="lazy" decoding="async">
-    <div class="text-content">
-      <h2>About</h2>
-      <p>Promised Landscaping is inspired by the idea of the "Promised Land"—a place of beauty, abundance, and fulfillment. I dedicate my expertise to creating outdoor spaces that feel like your personal haven.</p>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="content services-section">
-    <div class="text-content">
-      <h2>Services</h2>
-      <p>From lawn maintenance and yard cleanups to sod installation and mulch laying, I've got everything you need to enhance your outdoor space.</p>
-
-      <!-- YouTube: channel button + subscribe -->
-      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:10px;">
-        <a class="btn" href="https://www.youtube.com/@PromisedLandscaping"
-           target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube channel">
-          Visit our YouTube channel
-        </a>
-
-        <!-- YouTube Subscribe button (uses your Channel ID) -->
-        <div class="g-ytsubscribe"
-             data-channelid="UCqbhKoAe8uD-k2_-z452ZZw"
-             data-layout="default"
-             data-theme="dark"
-             data-count="default"></div>
+  <main class="wrap">
+    <section class="grid">
+      <div class="card half">
+        <h2>Quick, reliable alterations</h2>
+        <p>
+          I’m Sara — a local seamstress keeping things simple and high-quality.
+          If you need <strong>pants hemmed</strong>, a <strong>zipper fixed</strong>, or a <strong>basic clothing repair</strong>,
+          this is exactly what I do.
+        </p>
+        <p class="muted small">
+          I don’t take on large bridal or complex redesign work right now — just the practical alterations that help you
+          get your clothes fitting right again.
+        </p>
       </div>
 
-      <!-- Embedded video -->
-      <div class="video-wrap" aria-label="Relaxing Huge Front Corner Yard Lawn Cut – The Woodlands, Texas video">
-        <iframe
-          src="https://www.youtube.com/embed/BrLZETsxRhA"
-          title="Relaxing Huge Front Corner Yard Lawn Cut – The Woodlands, Texas"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+      <div class="card half">
+        <h2>Common services</h2>
+        <ul>
+          <li><strong>Pant hemming</strong> (jeans, slacks, uniforms)</li>
+          <li><strong>Basic waist adjustments</strong> (take in / let out where possible)</li>
+          <li><strong>Sleeve shortening</strong> and simple sleeve fixes</li>
+          <li><strong>Zipper repair / replacement</strong> (pants, skirts, jackets)</li>
+          <li><strong>Mending & repairs</strong> (small tears, seams, buttons)</li>
+        </ul>
       </div>
-    </div>
-    <img src="assets/images/midsod3.jpg" alt="Sod installation in progress" class="side-image" loading="lazy" decoding="async">
-  </section>
+    </section>
 
-  <!-- Pricing (modern cards) -->
-  <section id="pricing" class="content pricing-section">
-    <img src="assets/images/aftermulch.jpg" alt="Finished mulch landscaping" class="side-image" loading="lazy" decoding="async">
-
-    <div class="text-content">
-      <h2>Pricing & Estimates</h2>
-      <p style="margin-bottom:18px;">Clear starting prices. Final quote after a quick text or call—based on lot size, access, obstacles, and growth.</p>
-
-      <div class="price-grid">
-        <!-- Mowing -->
-        <article class="price-card highlight">
-          <h3>Mowing (Stand-on mower)</h3>
-
-          <!-- Lot type chips (pick one) -->
-          <div class="chip-group mow-size" aria-label="Select lot type">
-            <button class="chip selected" data-key="small">Small ≤ 4k sq ft — $50</button>
-            <button class="chip" data-key="medium">Mixed yard (small front / big back) — $65</button>
-            <button class="chip" data-key="corner">Corner lot — $80</button>
-            <button class="chip" data-key="huge">Huge / long ditch — $200</button>
+    <section class="grid">
+      <div class="card">
+        <h2>How it works</h2>
+        <div class="grid">
+          <div class="card half">
+            <h3 style="margin:0 0 6px;color:var(--pink-dark)">1) Email a photo</h3>
+            <p class="muted" style="margin:0">
+              Send a quick photo of the item + what you need (example: “hem these jeans 2 inches”).
+              I’ll reply with a quote and drop-off info.
+            </p>
           </div>
-
-          <!-- Optional add-ons (no bagging) -->
-          <div class="addons" aria-label="Optional add-ons">
-            <label><input type="checkbox" class="mow-addon" data-key="overgrowth"> Overgrowth +$20</label>
-            <label><input type="checkbox" class="mow-addon" data-key="edge"> Heavy edge refresh +$15</label>
-          </div>
-
-          <!-- Live estimate -->
-          <div class="price"><span id="mowPrice">$50+</span> <small class="est-note">est.</small></div>
-
-          <ul class="included">
-            <li>Stand-on mower cut</li>
-            <li>Weedeater edging</li>
-            <li>Leaf blower cleanup</li>
-          </ul>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn-quote" href="tel:2817575012">Call for quote</a>
-            <a class="btn-quote" href="sms:+12817575012?&body=Hi%20Promised%20Landscaping%2C%20I%27d%20like%20a%20mowing%20quote.%20My%20address%20is%20...%20Photos%20attached.">Text photos (fast)</a>
-          </div>
-          <p class="fine-print">Minimum service $50. Overgrowth and heavy edging may add to cost. Final quote after a quick call/text.</p>
-        </article>
-
-        <!-- Junk Removal (small pickup) -->
-        <article class="price-card">
-          <h3>Junk Removal (Small Pickup)</h3>
-          <div class="price">Starting at $80</div>
-          <ul class="included">
-            <li>Single item curbside: ~$80–$120</li>
-            <li>¼ bed: ~$120–$160 • ½ bed: ~$180–$260</li>
-            <li>¾ bed: ~$240–$320 • Full bed: ~$300–$380</li>
-          </ul>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn-quote" href="tel:2817575012">Call for quote</a>
-            <a class="btn-quote" href="sms:+12817575012?&body=Hi%20Promised%20Landscaping%2C%20I%27d%20like%20a%20junk%20removal%20quote.%20Photos%20attached.">Text photos</a>
-          </div>
-          <p class="fine-print">Small pickup bed ≈ 2–3 cu yd. Bedload (soil, concrete, roofing) and stairs/long carries may add to cost. No hazardous waste.</p>
-        </article>
-
-        <!-- Holiday Cleanups -->
-        <article class="price-card">
-          <h3>Holiday Cleanups</h3>
-          <div class="price">Typical range: $120–$250</div>
-          <ul class="included">
-            <li>Leaf & debris removal</li>
-            <li>Beds tidy & edge refresh</li>
-            <li>Patio/drive blowdown</li>
-          </ul>
-          <a class="btn-quote"
-             href="sms:+12817575012?&body=Hi%20Promised%20Landscaping%2C%20I%27d%20like%20to%20book%20a%20holiday%20cleanup.%20Address%3A%20...%20Preferred%20date%3A%20...%20Photos%20attached."
-             aria-label="Text to book a holiday cleanup">
-            Text to book
-          </a>
-          <p class="fine-print">Add-ons: gutter clean & haul-away. Final price based on volume & access.</p>
-        </article>
-
-        <!-- Specialty Landscaping -->
-        <article class="price-card">
-          <h3>Specialty Landscaping</h3>
-          <div class="price">Starting at $150</div>
-          <ul class="included">
-            <li>Sod installation</li>
-            <li>Mulch installation</li>
-            <li>Flowerbed renovation</li>
-          </ul>
-          <a class="btn-quote"
-             href="sms:+12817575012?&body=Hi%20Promised%20Landscaping%2C%20I%27d%20like%20help%20with%20a%20specialty%20landscaping%20project%20(sod%2Fmulch%2Fbed%20renovation).%20Address%3A%20...%20Photos%20attached."
-             aria-label="Text project details">
-            Text project (fast)
-          </a>
-          <p class="fine-print">Materials priced separately. Photos or a quick site visit help dial in the quote.</p>
-        </article>
-      </div>
-
-      <p class="fine-print" style="margin-top:12px;">Serving the Houston area. Text photos for the fastest quote.</p>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section id="reviews" class="content reviews-section">
-    <div class="text-content">
-      <h2>Reviews</h2>
-      <p>We’d love your feedback! Share your experience below.</p>
-
-      <!-- Google Business Profile -->
-      <p style="margin-top:12px;">
-        <a class="btn" href="https://g.page/r/CZAuNVnfW6q3EBM" target="_blank" rel="noopener noreferrer">
-          View our Google profile
-        </a>
-      </p>
-
-      <!-- Thumbtack button -->
-      <p style="margin-top:8px;">
-        <a class="btn" href="https://www.thumbtack.com/tx/houston/lawn-care/promised-landscaping-llc/service/542395709818036226" target="_blank" rel="noopener noreferrer">
-          View us on Thumbtack
-        </a>
-      </p>
-
-      <!-- Thumbtack (one-review) widget -->
-      <div class="thumbtack-widget-wrap">
-        <div class="widget" id="tt-review-widget-one">
-          <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/logos/thumbtack/wordmark.svg" alt="Thumbtack" />
-          <div id="tt-dynamic">
-            <div class="tt-left">
-              <img src="https://cdn.thumbtackstatic.com/fe-assets-web/_assets/images/release/components/avatar/images/legacy-default-avatar-50x50.25cbe35c0002a2eef6cbc5f1c4f271545eafbb59.png" alt="" />
-            </div>
-            <div class="tt-right">
-              <div class="tt-name">Falak S.</div>
-              <div class="tt-stars">
-                <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="">
-                <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="">
-                <img src="https://cdn/thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="">
-                <img src="https://cdn/thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="">
-                <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="">
-                <span>28 reviews</span>
-                <span>6d ago</span>
-              </div>
-              <p>Same day service Nate did an amazing job couldn't be more happier!</p>
-              <a target="_blank" href="https://www.thumbtack.com/tx/houston/lawn-care/promised-landscaping-llc/service/542395709818036226">See all reviews</a>
-            </div>
-            <br/>
+          <div class="card half">
+            <h3 style="margin:0 0 6px;color:var(--pink-dark)">2) Drop off & pickup</h3>
+            <p class="muted" style="margin:0">
+              Sara keeps a small schedule — simple jobs are usually fast.
+              Turnaround depends on workload, but I’ll always give you an honest timeframe.
+            </p>
           </div>
         </div>
-        <script src="https://www.thumbtack.com/profile/widgets/scripts/?service_pk=542395709818036226&widget_id=review&type=one"></script>
+
+        <div class="cta" style="margin-top:14px">
+          <div>
+            <strong>Email for a quick quote</strong><br/>
+            <span class="muted small">Include: item type + what needs fixing + optional photo</span>
+          </div>
+          <a class="btn" href="mailto:smoothstitchesbysara@gmail.com?subject=Alteration%20Quote%20Request&body=Hi%20Sara%2C%0A%0AItem%3A%20%0AWhat%20I%20need%3A%20%0AWhen%20I%20need%20it%20by%3A%20%0A%0AThanks!">
+            Email Smooth Stitches by Sara
+          </a>
+          <div class="small muted">
+            Or email: <a href="mailto:smoothstitchesbysara@gmail.com">smoothstitchesbysara@gmail.com</a>
+          </div>
+        </div>
       </div>
-      <!-- /Thumbtack widget -->
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="content contact-section">
-    <div class="text-content">
-      <h2>Contact</h2>
-      <p><strong>Phone:</strong> <a href="tel:2817575012">281-757-5012</a></p>
-      <p><strong>Email:</strong> <a href="mailto:promisedlandscapingleo@gmail.com">promisedlandscapingleo@gmail.com</a></p>
-    </div>
-    <img src="assets/images/OfficialPLogo.png" alt="Promised Landscaping logo" class="side-image" loading="lazy" decoding="async">
-  </section>
+    <section class="grid">
+      <div class="card half">
+        <h2>Perfect for</h2>
+        <ul>
+          <li>Work pants & uniforms that need hemming</li>
+          <li>Jeans that are too long</li>
+          <li>Loose waistlines that need a small adjustment</li>
+          <li>Zippers that stick, split, or broke</li>
+          <li>Quick repairs before an event or trip</li>
+        </ul>
+      </div>
 
-  <!-- Footer -->
+      <div class="card half">
+        <h2>SEO-friendly keywords (built in)</h2>
+        <p class="muted">
+          This page is written to naturally match searches like:
+          <strong>“pant hemming”</strong>, <strong>“alterations”</strong>, <strong>“zipper repair”</strong>,
+          and <strong>“clothing repair”</strong>.
+        </p>
+        <p class="muted small">
+          Next step for even better Google results: add your city + service area on the page (example: “Serving
+          Albuquerque, NM”).
+        </p>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <p>&copy; 2025 Promised Landscaping. <a href="#contact">Contact Us</a>.</p>
+    © <span id="year"></span> Smooth Stitches by Sara • Basic Alterations & Hemming •
+    <a href="mailto:smoothstitchesbysara@gmail.com">smoothstitchesbysara@gmail.com</a>
   </footer>
 
-  <!-- Load YouTube platform for Subscribe button -->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-  <!-- Script: mowing price selector (with your exact tiers) -->
   <script>
-    (function() {
-      // ===== EASY PRICE CONTROLS =====
-      const MULTIPLIER = 1.00; // bump to raise all mowing tiers at once
-
-      // Your example-based tiers
-      const TIERS = {
-        small: 50,    // Small ≤ 4k sq ft
-        medium: 65,   // Mixed yard (small front / big back)
-        corner: 80,   // Corner lot
-        huge: 200     // Huge yard / long ditch
-      };
-
-      // Optional add-ons
-      const ADDONS = { overgrowth: 20, edge: 15 };
-      // ===== /EASY PRICE CONTROLS =====
-
-      let currentTierKey = 'small';
-      const selected = new Set();
-
-      const chips = document.querySelectorAll('.mow-size .chip');
-      const priceEl = document.getElementById('mowPrice');
-      const addonInputs = document.querySelectorAll('.mow-addon');
-
-      function basePrice() { return Math.round((TIERS[currentTierKey] || 50) * MULTIPLIER); }
-      function addonsTotal() { let t = 0; selected.forEach(k => t += (ADDONS[k] || 0)); return t; }
-      function updatePrice() { priceEl.textContent = '$' + (basePrice() + addonsTotal()) + '+'; }
-
-      chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-          chips.forEach(c => c.classList.remove('selected'));
-          chip.classList.add('selected');
-          currentTierKey = chip.dataset.key;
-          updatePrice();
-        });
-      });
-      addonInputs.forEach(cb => {
-        cb.addEventListener('change', () => {
-          if (cb.checked) selected.add(cb.dataset.key); else selected.delete(cb.dataset.key);
-          updatePrice();
-        });
-      });
-      updatePrice();
-    })();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
