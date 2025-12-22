@@ -380,6 +380,33 @@ svg { max-width: 100%; height: auto; }
 .btn svg { width: 18px; height: 18px; }
 .kicker svg { width: 18px; height: 18px; }
 
+/* ===== iPad / Safari SVG safety net ===== */
+
+/* Never let any inline SVG expand weirdly */
+svg {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  flex: 0 0 20px !important;
+  display: inline-block !important;
+}
+
+/* Keep icons specifically inside UI elements small */
+.logo svg,
+.badge svg,
+.btn svg,
+.kicker svg {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+}
+
+/* Some Safari builds “fill” paths unexpectedly — force no fill */
+svg path {
+  fill: none !important;
+}
 
   </style>
 
