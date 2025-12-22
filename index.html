@@ -360,6 +360,27 @@
       overflow:hidden;clip:rect(0,0,0,0);
       white-space:nowrap;border:0;
     }
+    
+    /* --- iPad / tablet fixes --- */
+
+/* Never let SVGs or images grow bigger than their containers */
+img { max-width: 100%; height: auto; display: block; }
+svg { max-width: 100%; height: auto; }
+
+/* Force hero layout to stay "mobile style" on tablets (prevents weird iPad desktop layout bugs) */
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Hard clamp any icon that could accidentally scale */
+.logo svg { width: 22px; height: 22px; }
+.badge svg { width: 18px; height: 18px; }
+.btn svg { width: 18px; height: 18px; }
+.kicker svg { width: 18px; height: 18px; }
+
+
   </style>
 
   <!-- Local SEO Structured Data -->
