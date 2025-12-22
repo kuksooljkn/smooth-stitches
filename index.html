@@ -4,124 +4,310 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Smooth Stitches by Sara | Basic Alterations & Hemming</title>
-  <meta name="description" content="Smooth Stitches by Sara offers basic clothing alterations like pant hemming, zipper repair, and simple fixes. Email for a quick quote and drop-off details." />
+  <title>Smooth Stitches by Sara | Hemming & Basic Alterations</title>
+  <meta name="description" content="Smooth Stitches by Sara provides modern, friendly basic alterations: pant hemming, zipper repair, mending, and simple fit fixes. Email for a quick quote." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Optional: if you later add a logo/favicon -->
-  <!-- <link rel="icon" type="image/png" href="assets/favicon.png"> -->
+  <!-- Open Graph (helps when sharing links) -->
+  <meta property="og:title" content="Smooth Stitches by Sara" />
+  <meta property="og:description" content="Basic alterations done with care — pant hems, zippers, mending & simple fit fixes." />
+  <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --pink:#d84c7f;
-      --pink-dark:#b83a68;
+      --pink:#e94b8a;
+      --pink2:#ff78b3;
+      --ink:#201a1e;
+      --muted:#6b6370;
       --bg:#fff7fb;
-      --text:#2b2b2b;
       --card:#ffffff;
-      --muted:#6b6b6b;
-      --border:rgba(0,0,0,.08);
+      --border:rgba(32,26,30,.10);
+      --shadow: 0 18px 40px rgba(32,26,30,.08);
+      --radius:18px;
+      --radius2:24px;
     }
-    *{box-sizing:border-box}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 420px at 20% -10%, rgba(233,75,138,.22), transparent 60%),
+        radial-gradient(800px 420px at 95% 10%, rgba(255,120,179,.20), transparent 55%),
+        radial-gradient(900px 500px at 40% 110%, rgba(233,75,138,.10), transparent 60%),
+        var(--bg);
       line-height:1.6;
     }
-    header{
-      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
-      color:#fff;
-      padding: 56px 20px 40px;
-      text-align:center;
-    }
-    header h1{margin:0 0 8px;font-size:2.2rem}
-    header p{margin:0;opacity:.95;font-size:1.05rem}
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
     .wrap{
-      max-width: 980px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 16px 56px;
+      padding: 18px 16px 64px;
     }
-    .pillbar{
+
+    /* Top bar */
+    .topbar{
       display:flex;
-      gap:10px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:18px;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 12px 6px;
     }
-    .pill{
-      background: rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.25);
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .logo{
+      width:42px;height:42px;
+      border-radius:14px;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 12px 26px rgba(233,75,138,.28);
+      display:grid;
+      place-items:center;
+    }
+    .brand h1{
+      font-size: 1.05rem;
+      margin:0;
+      line-height:1.1;
+      letter-spacing:.2px;
+    }
+    .brand .tag{
+      font-size:.9rem;
+      color:var(--muted);
+      margin-top:2px;
+    }
+
+    .nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-size:.95rem;
+    }
+    .nav a{
+      padding:8px 10px;
+      border-radius:999px;
+    }
+    .nav a:hover{
+      background: rgba(233,75,138,.10);
+      text-decoration:none;
+    }
+
+    /* Hero */
+    .hero{
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.76));
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(650px 280px at 10% 10%, rgba(233,75,138,.22), transparent 60%),
+        radial-gradient(520px 260px at 90% 20%, rgba(255,120,179,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      display:grid;
+      gap:16px;
+      grid-template-columns: 1fr;
+      padding: 26px;
+    }
+    @media(min-width:900px){
+      .hero-inner{
+        grid-template-columns: 1.15fr .85fr;
+        align-items:center;
+        padding: 34px;
+      }
+    }
+    .headline{
+      margin:0;
+      font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+      line-height:1.15;
+      letter-spacing:-.4px;
+    }
+    .sub{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 58ch;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .badge{
+      display:flex;
+      align-items:center;
+      gap:8px;
       padding: 8px 12px;
       border-radius: 999px;
-      font-size:.95rem;
-      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(233,75,138,.18);
+      font-size: .95rem;
     }
-    section{margin-top:28px}
-    h2{
-      color: var(--pink-dark);
-      margin: 0 0 10px;
-      font-size:1.5rem;
+    .badge svg{ width:18px;height:18px; opacity:.9; }
+
+    .hero-card{
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(32,26,30,.10);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 18px 35px rgba(32,26,30,.07);
     }
-    .grid{
+    .hero-card h3{
+      margin:0 0 6px;
+      font-size: 1.05rem;
+    }
+    .hero-card p{ margin:0; color:var(--muted); }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:16px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 0;
+      font-weight: 800;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow: 0 12px 26px rgba(233,75,138,.20);
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      color:white;
+    }
+    .btn:hover{ text-decoration:none; filter: brightness(.98); }
+    .btn.secondary{
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(233,75,138,.25);
+      color: var(--ink);
+      box-shadow: none;
+    }
+    .btn svg{ width:18px; height:18px; }
+
+    /* Sections */
+    .section{
+      margin-top: 22px;
       display:grid;
+      gap:14px;
       grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
     }
     .card{
       grid-column: span 12;
-      background: var(--card);
+      background: rgba(255,255,255,.9);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius);
       padding: 18px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.05);
+      box-shadow: 0 12px 30px rgba(32,26,30,.06);
     }
-    @media(min-width:820px){
-      .card.half{grid-column: span 6;}
+    @media(min-width:900px){
+      .card.half{ grid-column: span 6; }
+      .card.third{ grid-column: span 4; }
+      .card.twoThird{ grid-column: span 8; }
     }
-    ul{margin:10px 0 0;padding-left:18px}
-    .muted{color:var(--muted)}
-    .cta{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+
+    .kicker{
+      display:inline-flex;
+      gap:8px;
       align-items:center;
-      text-align:center;
-      padding: 18px;
-      border-radius: 12px;
-      border: 1px dashed rgba(216,76,127,.35);
-      background: rgba(216,76,127,.06);
+      font-weight:800;
+      color: rgba(32,26,30,.9);
+      letter-spacing:.2px;
+      margin-bottom: 8px;
     }
-    .btn{
-      display:inline-block;
-      background: var(--pink);
-      color:#fff;
-      padding: 12px 16px;
-      border-radius: 10px;
-      text-decoration:none;
-      font-weight:700;
+    .kicker svg{ width:18px; height:18px; }
+    h2{ margin:0 0 10px; font-size: 1.35rem; }
+    .muted{ color: var(--muted); }
+
+    .list{
+      margin: 10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
     }
-    .btn:hover{background:var(--pink-dark)}
-    .small{font-size:.95rem}
-    footer{
-      text-align:center;
-      padding: 18px 14px;
-      background: rgba(255,255,255,.65);
-      border-top: 1px solid var(--border);
-      font-size: 14px;
+    .list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(233,75,138,.06);
+      border: 1px solid rgba(233,75,138,.14);
+    }
+    .list svg{ width:18px;height:18px; margin-top:2px; flex:0 0 auto; }
+
+    .steps{
+      display:grid;
+      gap:12px;
+    }
+    @media(min-width:900px){
+      .steps{ grid-template-columns: repeat(3, 1fr); }
+    }
+    .step{
+      border-radius: 16px;
+      padding: 14px;
+      border: 1px solid rgba(32,26,30,.10);
+      background: rgba(255,255,255,.86);
+    }
+    .step strong{ display:block; margin-bottom:4px; }
+    .step p{ margin:0; color:var(--muted); }
+
+    .note{
+      border-radius: 16px;
+      border: 1px dashed rgba(233,75,138,.35);
+      background: rgba(233,75,138,.06);
+      padding: 14px;
+      margin-top: 12px;
       color: var(--muted);
     }
-    a{color:var(--pink-dark);font-weight:700;text-decoration:none}
-    a:hover{text-decoration:underline}
+
+    .footer{
+      margin-top: 26px;
+      text-align:center;
+      color: var(--muted);
+      font-size: .95rem;
+      padding: 16px 10px;
+    }
+
+    /* tiny helper */
+    .sr-only{
+      position:absolute;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      white-space:nowrap;border:0;
+    }
   </style>
 
-  <!-- Local SEO: Structured data (edit serviceArea later if you want) -->
+  <!-- Local SEO Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Smooth Stitches by Sara",
-    "description": "Basic clothing alterations and hemming. Quick, simple fixes like pant hems, zipper repair, and mending.",
+    "description": "Basic clothing alterations: pant hemming, zipper repair, mending, and simple fit fixes.",
     "email": "smoothstitchesbysara@gmail.com",
     "url": "https://smoothstitchesbysara.com",
     "priceRange": "$",
@@ -138,112 +324,240 @@
 </head>
 
 <body>
-  <header>
-    <h1>Smooth Stitches by Sara</h1>
-    <p>Basic Alterations • Pant Hemming • Simple Fixes</p>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- Needle icon -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M18.8 2.8c-1.3 1.3-2.6 3.4-3.3 5.2l-6 14.1c-.2.5-.8.7-1.2.3l-1.1-1.1c-.4-.4-.2-1 .3-1.2l14.1-6c1.8-.8 3.9-2 5.2-3.3" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M19.2 4.4l.4.4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Smooth Stitches by Sara</h1>
+          <div class="tag">Hemming & basic alterations</div>
+        </div>
+      </div>
 
-    <div class="pillbar" aria-label="Popular services">
-      <div class="pill">Pant hems</div>
-      <div class="pill">Zippers</div>
-      <div class="pill">Mending</div>
-      <div class="pill">Waist tweaks</div>
-      <div class="pill">Sleeve shortening</div>
+      <nav class="nav" aria-label="Site">
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </header>
 
-  <main class="wrap">
-    <section class="grid">
-      <div class="card half">
-        <h2>Quick, reliable alterations</h2>
-        <p>
-          I’m Sara — a local seamstress keeping things simple and high-quality.
-          If you need <strong>pants hemmed</strong>, a <strong>zipper fixed</strong>, or a <strong>basic clothing repair</strong>,
-          this is exactly what I do.
-        </p>
-        <p class="muted small">
-          I don’t take on large bridal or complex redesign work right now — just the practical alterations that help you
-          get your clothes fitting right again.
-        </p>
-      </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <h2 class="headline">Simple fixes. Clean lines. Clothes that fit right.</h2>
+          <p class="sub">
+            I’m Sara — I specialize in <strong>basic alterations</strong> like pant hems, zipper repairs, mending,
+            and small fit adjustments. Friendly, modern, and straightforward.
+          </p>
 
-      <div class="card half">
-        <h2>Common services</h2>
-        <ul>
-          <li><strong>Pant hemming</strong> (jeans, slacks, uniforms)</li>
-          <li><strong>Basic waist adjustments</strong> (take in / let out where possible)</li>
-          <li><strong>Sleeve shortening</strong> and simple sleeve fixes</li>
-          <li><strong>Zipper repair / replacement</strong> (pants, skirts, jackets)</li>
-          <li><strong>Mending & repairs</strong> (small tears, seams, buttons)</li>
-        </ul>
+          <div class="badges" aria-label="Highlights">
+            <div class="badge">
+              <!-- sparkle -->
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l1.2 5.2L18 8.4l-4.8 1.2L12 15l-1.2-5.4L6 8.4l4.8-1.2L12 2z" stroke="rgba(32,26,30,.9)" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              Neat hems & clean finishes
+            </div>
+            <div class="badge">
+              <!-- clock -->
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 7v6l4 2" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/><path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9z" stroke="rgba(32,26,30,.9)" stroke-width="2"/></svg>
+              Quick quotes by email
+            </div>
+            <div class="badge">
+              <!-- thread -->
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 17c3 2 11 2 14-3 2.2-3.6-1.2-7-5.3-5.6C10 9.5 11 14 14 12.8" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/></svg>
+              Small-batch schedule
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn" href="mailto:smoothstitchesbysara@gmail.com?subject=Alteration%20Quote%20Request&body=Hi%20Sara%2C%0A%0AItem%3A%20%0AWhat%20I%20need%3A%20%0AWhen%20I%20need%20it%20by%3A%20%0A%0A(Optional)%20Attach%20a%20photo.%0A%0AThanks!">
+              <!-- mail -->
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="white" stroke-width="2" /><path d="m4 7 8 6 8-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Email for a quote
+            </a>
+            <a class="btn secondary" href="#services">
+              <!-- scissors-ish -->
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/><path d="M7 17l10-10" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/><path d="M6.5 6.5a2 2 0 1 0 0 .01z" stroke="rgba(32,26,30,.9)" stroke-width="2"/><path d="M6.5 17.5a2 2 0 1 0 0 .01z" stroke="rgba(32,26,30,.9)" stroke-width="2"/></svg>
+              See services
+            </a>
+          </div>
+
+          <p class="muted" style="margin:12px 0 0;">
+            Email: <a href="mailto:smoothstitchesbysara@gmail.com">smoothstitchesbysara@gmail.com</a>
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-label="Info card">
+          <h3>Best for everyday alterations</h3>
+          <p>
+            Jeans too long? Zipper stuck? Seam split? I focus on the practical fixes that help you
+            wear your favorites again — without the stress.
+          </p>
+          <div class="note">
+            <strong>Tip:</strong> For the fastest quote, attach a photo and tell me what you want changed.
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2>How it works</h2>
-        <div class="grid">
-          <div class="card half">
-            <h3 style="margin:0 0 6px;color:var(--pink-dark)">1) Email a photo</h3>
-            <p class="muted" style="margin:0">
-              Send a quick photo of the item + what you need (example: “hem these jeans 2 inches”).
-              I’ll reply with a quote and drop-off info.
-            </p>
-          </div>
-          <div class="card half">
-            <h3 style="margin:0 0 6px;color:var(--pink-dark)">2) Drop off & pickup</h3>
-            <p class="muted" style="margin:0">
-              Sara keeps a small schedule — simple jobs are usually fast.
-              Turnaround depends on workload, but I’ll always give you an honest timeframe.
-            </p>
-          </div>
-        </div>
-
-        <div class="cta" style="margin-top:14px">
-          <div>
-            <strong>Email for a quick quote</strong><br/>
-            <span class="muted small">Include: item type + what needs fixing + optional photo</span>
-          </div>
-          <a class="btn" href="mailto:smoothstitchesbysara@gmail.com?subject=Alteration%20Quote%20Request&body=Hi%20Sara%2C%0A%0AItem%3A%20%0AWhat%20I%20need%3A%20%0AWhen%20I%20need%20it%20by%3A%20%0A%0AThanks!">
-            Email Smooth Stitches by Sara
-          </a>
-          <div class="small muted">
-            Or email: <a href="mailto:smoothstitchesbysara@gmail.com">smoothstitchesbysara@gmail.com</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid">
+    <!-- SERVICES -->
+    <section id="services" class="section">
       <div class="card half">
-        <h2>Perfect for</h2>
-        <ul>
-          <li>Work pants & uniforms that need hemming</li>
-          <li>Jeans that are too long</li>
-          <li>Loose waistlines that need a small adjustment</li>
-          <li>Zippers that stick, split, or broke</li>
-          <li>Quick repairs before an event or trip</li>
+        <div class="kicker">
+          <!-- button -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="8" stroke="rgba(32,26,30,.9)" stroke-width="2"/>
+            <circle cx="9.5" cy="10.5" r="1" fill="rgba(32,26,30,.9)"/>
+            <circle cx="14.5" cy="10.5" r="1" fill="rgba(32,26,30,.9)"/>
+            <circle cx="9.5" cy="14.5" r="1" fill="rgba(32,26,30,.9)"/>
+            <circle cx="14.5" cy="14.5" r="1" fill="rgba(32,26,30,.9)"/>
+          </svg>
+          Services
+        </div>
+        <h2>Basic alterations I do most often</h2>
+        <ul class="list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6 12h12" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/><path d="M9 7h6M9 17h6" stroke="rgba(32,26,30,.65)" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><strong>Pant hemming</strong><div class="muted">Jeans, slacks, uniforms</div></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M10 4v16" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/><path d="M14 4v16" stroke="rgba(32,26,30,.55)" stroke-width="2" stroke-linecap="round"/><path d="M10 8h4" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><strong>Zipper repair / replacement</strong><div class="muted">Pants, skirts, jackets</div></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17c3 2 11 2 14-3" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/><path d="M6 7c2 3 7 4 9 2" stroke="rgba(32,26,30,.55)" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><strong>Mending & repairs</strong><div class="muted">Small tears, seam fixes, buttons</div></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 8c1.5-2 6.5-2 8 0" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/><path d="M8 16c1.5 2 6.5 2 8 0" stroke="rgba(32,26,30,.55)" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><strong>Simple fit tweaks</strong><div class="muted">Small waist/sleeve adjustments where possible</div></div>
+          </li>
         </ul>
       </div>
 
       <div class="card half">
-        <h2>SEO-friendly keywords (built in)</h2>
+        <div class="kicker">
+          <!-- needle+thread -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M18 3c-2 2-3.2 5.2-3.2 5.2L9.4 21.6a.8.8 0 0 1-1 .4l-1.3-.6a.8.8 0 0 1-.3-1l5.7-13.4S13.8 4.7 16 2.6" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M5 18c3 2 11 2 14-3" stroke="rgba(32,26,30,.55)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Good to know
+        </div>
+        <h2>Keeping it simple (on purpose)</h2>
         <p class="muted">
-          This page is written to naturally match searches like:
-          <strong>“pant hemming”</strong>, <strong>“alterations”</strong>, <strong>“zipper repair”</strong>,
-          and <strong>“clothing repair”</strong>.
+          Sara doesn’t have a lot of extra time, so she focuses on alterations that can be done
+          carefully and efficiently. That means no huge redesigns right now — just the jobs most people need.
         </p>
-        <p class="muted small">
-          Next step for even better Google results: add your city + service area on the page (example: “Serving
-          Albuquerque, NM”).
-        </p>
+        <div class="note">
+          <strong>Great for:</strong> everyday wear, work clothes, uniforms, and “I need this to fit better” moments.
+        </div>
+
+        <!-- Optional image slot: replace src later -->
+        <div style="margin-top:14px; display:grid; gap:10px;">
+          <div class="step" style="display:flex; gap:12px; align-items:center;">
+            <div style="width:52px;height:52px;border-radius:16px;background:rgba(233,75,138,.10);display:grid;place-items:center;border:1px solid rgba(233,75,138,.18);">
+              <svg viewBox="0 0 24 24" fill="none" width="26" height="26">
+                <path d="M8 12l3 3 5-6" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9z" stroke="rgba(32,26,30,.55)" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Modern + friendly</strong>
+              <div class="muted">Straightforward process, clear expectations.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    © <span id="year"></span> Smooth Stitches by Sara • Basic Alterations & Hemming •
-    <a href="mailto:smoothstitchesbysara@gmail.com">smoothstitchesbysara@gmail.com</a>
-  </footer>
+    <!-- HOW -->
+    <section id="how" class="section">
+      <div class="card">
+        <div class="kicker">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h10M4 17h16" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          How it works
+        </div>
+        <h2>Three easy steps</h2>
+        <div class="steps">
+          <div class="step">
+            <strong>1) Email a photo</strong>
+            <p>Send a picture of the item + what you want changed. I’ll reply with a quote and drop-off details.</p>
+          </div>
+          <div class="step">
+            <strong>2) Drop off</strong>
+            <p>Bring the item by at the arranged time. If it helps, pin/mark where you want the hem.</p>
+          </div>
+          <div class="step">
+            <strong>3) Pickup</strong>
+            <p>I’ll message you when it’s ready. Turnaround depends on workload — you’ll get an honest timeframe.</p>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Easy email template:</strong>
+          <span class="muted">Item + what you need + when you need it by (attach photo if possible).</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="card twoThird">
+        <div class="kicker">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h16v12H4z" stroke="rgba(32,26,30,.9)" stroke-width="2"/>
+            <path d="m4 7 8 6 8-6" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Contact
+        </div>
+        <h2>Email for a quick quote</h2>
+        <p class="muted">
+          The fastest way to get started is email. Include a photo if you can — it helps me quote quickly.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn" href="mailto:smoothstitchesbysara@gmail.com?subject=Alteration%20Quote%20Request&body=Hi%20Sara%2C%0A%0AItem%3A%20%0AWhat%20I%20need%3A%20%0AWhen%20I%20need%20it%20by%3A%20%0A%0A(Optional)%20Attach%20a%20photo.%0A%0AThanks!">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="white" stroke-width="2" /><path d="m4 7 8 6 8-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Email Sara
+          </a>
+          <a class="btn secondary" href="mailto:smoothstitchesbysara@gmail.com">
+            smoothstitchesbysara@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="card third">
+        <div class="kicker">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l2.2 6.3L21 10l-6.8 1.7L12 18l-2.2-6.3L3 10l6.8-1.7L12 2z" stroke="rgba(32,26,30,.9)" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Small business vibes
+        </div>
+        <h2>Slow & steady</h2>
+        <p class="muted">
+          Sara’s building her client list gradually. If you like the work, tell a friend — it helps a ton.
+        </p>
+        <div class="note">
+          <strong>Tip:</strong> Add your city for better Google results.<br/>
+          <span class="muted">Example: “Serving ___, ___”</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> Smooth Stitches by Sara • Hemming & Basic Alterations •
+      <a href="mailto:smoothstitchesbysara@gmail.com">smoothstitchesbysara@gmail.com</a>
+    </div>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
