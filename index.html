@@ -49,7 +49,68 @@
       margin: 0 auto;
       padding: 18px 16px 64px;
     }
+/* Hide the old topbar styles from affecting anything (optional, since we removed the HTML) */
+.topbar { display:none; }
 
+/* New hero image */
+.hero-image{
+  margin-top: 10px;
+}
+.hero-image img{
+  width: 100%;
+  max-width: 960px;
+  display:block;
+  margin: 0 auto;
+  border-radius: var(--radius2);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: white;
+}
+
+/* Brand + nav under the image */
+.hero-intro{
+  text-align:center;
+  padding: 18px 10px 6px;
+}
+.hero-intro h1{
+  margin: 0;
+  font-size: 2.3rem;           /* BIGGER */
+  font-weight: 900;
+  letter-spacing: -0.4px;
+}
+.hero-intro .tagline{
+  margin: 6px 0 0;
+  font-size: 1.15rem;          /* BIGGER */
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Bigger nav buttons */
+.hero-nav{
+  margin-top: 14px;
+  display:flex;
+  justify-content:center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.hero-nav a{
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(233,75,138,.10);
+  border: 1px solid rgba(233,75,138,.18);
+}
+.hero-nav a:hover{
+  background: rgba(233,75,138,.18);
+  text-decoration:none;
+}
+
+/* Mobile: even bigger and comfortable */
+@media (max-width: 520px){
+  .hero-intro h1{ font-size: 2.05rem; }
+  .hero-nav a{ width: 100%; max-width: 260px; text-align:center; }
+  
     /* Top bar */
     .topbar{
       display:flex;
@@ -325,35 +386,25 @@
 
 <body>
   <div class="wrap">
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <!-- Needle icon -->
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M18.8 2.8c-1.3 1.3-2.6 3.4-3.3 5.2l-6 14.1c-.2.5-.8.7-1.2.3l-1.1-1.1c-.4-.4-.2-1 .3-1.2l14.1-6c1.8-.8 3.9-2 5.2-3.3" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <path d="M19.2 4.4l.4.4" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div>
-          <h1>Smooth Stitches by Sara</h1>
-          <div class="tag">Hemming & basic alterations</div>
-        </div>
-      </div>
+    
+<!-- HERO IMAGE -->
+<section class="hero-image">
+  <img
+    src="assets/images/IMG_8848.jpeg"
+  />
+</section>
 
-      <nav class="nav" aria-label="Site">
-        <a href="#services">Services</a>
-        <a href="#how">How it works</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+<!-- BIG BRAND + NAV UNDER IMAGE -->
+<section class="hero-intro">
+  <h1>Smooth Stitches by Sara</h1>
+  <p class="tagline">Hemming & basic alterations</p>
 
-	<div class="card half">
-    <img
-      src="assets/images/IMG_8848.jpeg"
-      style="width:100%; border-radius:16px;"
-    />
-  </div>
-
+  <nav class="hero-nav" aria-label="Site">
+    <a href="#services">Services</a>
+    <a href="#how">How it works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</section>
 
 
     <!-- HERO -->
